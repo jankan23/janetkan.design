@@ -1,0 +1,166 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300);
+
+body {
+	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    display: flex;
+}
+
+*::selection {
+	background: #f49617;
+}
+
+.tile img, .project img { display: none; }
+
+/*fade in images*/
+.projects {
+	display: none;
+}
+
+#close {
+	display: none;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 4;
+    color: #333;
+    font-size: 1.5em;
+}
+
+.profile {
+	text-align: left;
+	flex-basis: 33%;
+	padding: 10vw 0;
+}
+
+.profile a {
+    color: initial;
+    text-decoration: none;
+}
+
+.blurb {
+	text-align: center;
+	padding: 5%;
+}
+
+.profile img.logo,
+.profile .details {
+	margin: 30px auto;
+	display: block;
+    width: 80%;
+    max-width: 220px;
+}
+
+.profile .fa {
+	padding: 0 5px;
+	color: #7e8aa2;
+}
+
+.projects {
+	flex-basis: 67%;
+
+	/* flex tiles */
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.tile {
+	position: relative;
+	flex-basis: 50%;
+	height: 100%
+}
+
+.tile img {
+	width: 100%;
+}
+
+.tile .title:hover {
+	opacity: 1;
+	cursor: pointer;
+	cursor: hand;
+}
+
+.tile .title {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-weight: 400;
+	text-align: center;
+	opacity: 0;
+	background: rgba(37, 51, 73, 0.88);
+	transition: .5s all;
+}
+
+.tile .title h2 {
+    padding: 6vw 2vw;
+    font-weight: 400;
+}
+
+.project {
+	display: none;
+    position: fixed;
+    top: 0;
+    bottom:0;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    background: #fff;
+    z-index: 2;
+    padding: 3.5%;
+    font-size: 1em;
+    line-height: 2em;
+    width: 60%;
+}
+
+.project::-webkit-scrollbar { 
+    display: none; 
+}
+
+.project img {
+	width: 80%;
+	margin: 50px auto;
+	display: block;
+}
+@media screen and (max-width: 1024px) {	
+	.profile * {
+		font-size: 1em;
+	}
+	.tile {
+		width: 100%;
+	}
+	.tile .title {
+		opacity: 1;
+		height: 7vw;
+	}
+	.tile .title h2 {
+		font-size: 1.2em;
+		font-weight: 400;
+		padding: 0;
+	}
+}
+@media screen and (max-width: 600px) {	
+	body {
+		flex-wrap: wrap;
+	}
+	.profile,
+	.projects,
+	.project {
+		flex-basis: 100%;
+	}
+	.project {
+		padding: 0 5%;
+    	width: 90%;
+	}
+	.tile .title {
+		height: 15vw;
+	}
+	.tile .title h2 {
+		font-size: 1em;
+	}
+}
